@@ -1,0 +1,140 @@
+nohup: ignoring input
+MT
+Dataset: USOVA
+Training data: 2593
+Validation data: 398
+Testing data: 428
+
+ --- Pre-train ---
+/mnt/nvme0/home/utbt/KhoaVM/Proposed_Contrastive3/train_mt.py:24: UserWarning: This overload of add_ is deprecated:
+	add_(Number alpha, Tensor other)
+Consider using one of the following signatures instead:
+	add_(Tensor other, *, Number alpha = 1) (Triggered internally at ../torch/csrc/utils/python_arg_parser.cpp:1642.)
+  ema_param.data.mul_(alpha).add_(1 - alpha, param.data)
+Epoch [1/10]
+loss: 0.2958 | dice: 0.7599 | iou: 0.6685 | precision: 0.9003 | recall: 0.7155
+  → Best models updated (val_loss=0.2958)
+Epoch [2/10]
+loss: 0.3007 | dice: 0.7106 | iou: 0.6163 | precision: 0.9064 | recall: 0.6453
+Epoch [3/10]
+loss: 0.2555 | dice: 0.7778 | iou: 0.7029 | precision: 0.8782 | recall: 0.7713
+  → Best models updated (val_loss=0.2555)
+Epoch [4/10]
+loss: 0.2635 | dice: 0.7301 | iou: 0.6524 | precision: 0.8934 | recall: 0.6888
+Epoch [5/10]
+loss: 0.2612 | dice: 0.7494 | iou: 0.6710 | precision: 0.8965 | recall: 0.7209
+Epoch [6/10]
+loss: 0.2809 | dice: 0.7198 | iou: 0.6332 | precision: 0.9067 | recall: 0.6779
+Epoch [7/10]
+loss: 0.2483 | dice: 0.7419 | iou: 0.6646 | precision: 0.9007 | recall: 0.7206
+  → Best models updated (val_loss=0.2483)
+Epoch [8/10]
+loss: 0.2381 | dice: 0.7690 | iou: 0.6940 | precision: 0.9052 | recall: 0.7463
+  → Best models updated (val_loss=0.2381)
+Epoch [9/10]
+loss: 0.2254 | dice: 0.8152 | iou: 0.7536 | precision: 0.8793 | recall: 0.8314
+  → Best models updated (val_loss=0.2254)
+Epoch [10/10]
+loss: 0.2394 | dice: 0.7686 | iou: 0.6961 | precision: 0.8947 | recall: 0.7538
+
+ --- Self-train ---
+Epoch [1/100]
+loss: 1.2645 | dice: 0.6451 | iou: 0.5239 | precision: 0.9787 | recall: 0.5273
+Epoch [2/100]
+loss: 0.9962 | dice: 0.6554 | iou: 0.5404 | precision: 0.9545 | recall: 0.5516
+Epoch [3/100]
+loss: 0.5248 | dice: 0.6582 | iou: 0.5417 | precision: 0.9242 | recall: 0.5733
+Epoch [4/100]
+loss: 0.4752 | dice: 0.6055 | iou: 0.4731 | precision: 0.7996 | recall: 0.5664
+Epoch [5/100]
+loss: 0.5296 | dice: 0.5732 | iou: 0.4374 | precision: 0.7519 | recall: 0.5459
+Epoch [6/100]
+loss: 0.5225 | dice: 0.5807 | iou: 0.4493 | precision: 0.7387 | recall: 0.5606
+Epoch [7/100]
+loss: 0.5444 | dice: 0.5595 | iou: 0.4268 | precision: 0.6738 | recall: 0.5752
+Epoch [8/100]
+loss: 0.5736 | dice: 0.4725 | iou: 0.3364 | precision: 0.5528 | recall: 0.5223
+Epoch [9/100]
+loss: 0.5836 | dice: 0.2054 | iou: 0.1196 | precision: 0.2471 | recall: 0.3612
+Epoch [10/100]
+loss: 0.5968 | dice: 0.1513 | iou: 0.0845 | precision: 0.2030 | recall: 0.3054
+Epoch [11/100]
+loss: 0.6104 | dice: 0.0926 | iou: 0.0500 | precision: 0.1584 | recall: 0.2433
+Epoch [12/100]
+loss: 0.6122 | dice: 0.0409 | iou: 0.0215 | precision: 0.1238 | recall: 0.1622
+Epoch [13/100]
+loss: 0.6184 | dice: 0.0707 | iou: 0.0560 | precision: 0.1173 | recall: 0.2898
+Epoch [14/100]
+loss: 0.6205 | dice: 0.0323 | iou: 0.0169 | precision: 0.1176 | recall: 0.2791
+Epoch [15/100]
+loss: 0.6230 | dice: 0.0280 | iou: 0.0146 | precision: 0.1155 | recall: 0.1541
+Epoch [16/100]
+loss: 0.6249 | dice: 0.0292 | iou: 0.0152 | precision: 0.1158 | recall: 0.1891
+Epoch [17/100]
+loss: 0.6301 | dice: 0.0254 | iou: 0.0132 | precision: 0.1137 | recall: 0.1780
+Epoch [18/100]
+loss: 0.6313 | dice: 0.0242 | iou: 0.0125 | precision: 0.1130 | recall: 0.1725
+Epoch [19/100]
+loss: 0.6266 | dice: 0.0089 | iou: 0.0045 | precision: 0.1047 | recall: 0.1825
+Epoch [20/100]
+loss: 0.6320 | dice: 0.0130 | iou: 0.0067 | precision: 0.1069 | recall: 0.1260
+Epoch [21/100]
+loss: 0.6332 | dice: 0.0122 | iou: 0.0062 | precision: 0.1064 | recall: 0.1206
+Epoch [22/100]
+loss: 0.6353 | dice: 0.0145 | iou: 0.0074 | precision: 0.1077 | recall: 0.1317
+Epoch [23/100]
+loss: 0.6343 | dice: 0.0108 | iou: 0.0055 | precision: 0.1057 | recall: 0.1116
+Epoch [24/100]
+loss: 0.6282 | dice: 0.0072 | iou: 0.0036 | precision: 0.1038 | recall: 0.0881
+Epoch [25/100]
+loss: 0.6257 | dice: 0.0057 | iou: 0.0029 | precision: 0.1030 | recall: 0.0726
+Epoch [26/100]
+loss: 0.6259 | dice: 0.0036 | iou: 0.0018 | precision: 0.1019 | recall: 0.0539
+Epoch [27/100]
+loss: 0.6238 | dice: 0.0018 | iou: 0.0009 | precision: 0.1009 | recall: 0.0317
+Epoch [28/100]
+loss: 0.6248 | dice: 0.0016 | iou: 0.0008 | precision: 0.1008 | recall: 0.0290
+Epoch [29/100]
+loss: 0.6240 | dice: 0.0006 | iou: 0.0003 | precision: 0.1003 | recall: 0.0120
+Epoch [30/100]
+loss: 0.6240 | dice: 0.0005 | iou: 0.0002 | precision: 0.1002 | recall: 0.0095
+Epoch [31/100]
+loss: 0.6204 | dice: 0.0002 | iou: 0.0001 | precision: 0.1001 | recall: 0.0047
+Epoch [32/100]
+loss: 0.6196 | dice: 0.0001 | iou: 0.0001 | precision: 0.1001 | recall: 0.0027
+Epoch [33/100]
+loss: 0.6192 | dice: 0.0001 | iou: 0.0000 | precision: 0.1000 | recall: 0.0020
+Epoch [34/100]
+loss: 0.6197 | dice: 0.0001 | iou: 0.0000 | precision: 0.1000 | recall: 0.0026
+Epoch [35/100]
+loss: 0.6203 | dice: 0.0001 | iou: 0.0000 | precision: 0.1000 | recall: 0.0026
+Epoch [36/100]
+loss: 0.6201 | dice: 0.0001 | iou: 0.0000 | precision: 0.1000 | recall: 0.0017
+Epoch [37/100]
+loss: 0.6191 | dice: 0.0000 | iou: 0.0000 | precision: 0.1000 | recall: 0.0004
+Epoch [38/100]
+loss: 0.6185 | dice: 0.0000 | iou: 0.0000 | precision: 0.1000 | recall: 0.0000
+Epoch [39/100]
+loss: 0.6181 | dice: 0.0000 | iou: 0.0000 | precision: 0.1000 | recall: 0.0000
+Epoch [40/100]
+loss: 0.6181 | dice: 0.0000 | iou: 0.0000 | precision: 0.1000 | recall: 0.0000
+Epoch [41/100]
+loss: 0.6179 | dice: 0.0000 | iou: 0.0000 | precision: 0.1000 | recall: 0.0000
+Epoch [42/100]
+loss: 0.6181 | dice: 0.0000 | iou: 0.0000 | precision: 0.1000 | recall: 0.0000
+Epoch [43/100]
+loss: 0.6183 | dice: 0.0000 | iou: 0.0000 | precision: 0.1000 | recall: 0.0000
+Epoch [44/100]
+loss: 0.6190 | dice: 0.0000 | iou: 0.0000 | precision: 0.1000 | recall: 0.0202
+Epoch [45/100]
+loss: 0.6197 | dice: 0.0400 | iou: 0.0400 | precision: 0.1000 | recall: 0.0804
+Epoch [46/100]
+loss: 0.6201 | dice: 0.0001 | iou: 0.0000 | precision: 0.1000 | recall: 0.0016
+Epoch [47/100]
+loss: 0.6207 | dice: 0.0402 | iou: 0.0401 | precision: 0.1001 | recall: 0.1445
+Epoch [48/100]
+loss: 0.6202 | dice: 0.0002 | iou: 0.0001 | precision: 0.1001 | recall: 0.0065
+Epoch [49/100]
+loss: 0.6206 | dice: 0.0004 | iou: 0.0002 | precision: 0.1002 | recall: 0.0111
+Epoch [50/100]
+loss: 0.6197 | dice: 0.0006 | iou: 0.0003 | precision: 0.1003 | recall: 0.0353
