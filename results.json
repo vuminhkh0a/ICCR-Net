@@ -1,66 +1,47 @@
 [
     {
-        "method": "SimCLR",
-        "dice": 0.7544,
-        "iou": 0.6135,
-        "precision": 0.8213,
-        "recall": 0.715,
-        "hd95": 5.0603
-    },
-    {
-        "method": "MoCo",
-        "dice": 0.7991,
-        "iou": 0.6713,
-        "precision": 0.858,
-        "recall": 0.7654,
-        "hd95": 4.6132
-    },
-    {
-        "method": "BYOL",
-        "dice": 0.7867,
-        "iou": 0.6544,
-        "precision": 0.8141,
-        "recall": 0.7789,
-        "hd95": 4.0268
-    },
-    {
+        "dataset": "OVATUS",
         "method": "SimSiam",
-        "dice": 0.8108,
-        "iou": 0.6868,
-        "precision": 0.8278,
-        "recall": 0.8058,
-        "hd95": 3.5418
+        "dice": 0.9277,
+        "iou": 0.8658,
+        "precision": 0.9284,
+        "recall": 0.9379,
+        "hd95": 0.7857
     },
     {
+        "dataset": "OVATUS",
+        "method": "SimCLR",
+        "dice": 0.9269,
+        "iou": 0.8645,
+        "precision": 0.9348,
+        "recall": 0.9254,
+        "hd95": 0.8571
+    },
+    {
+        "dataset": "OVATUS",
         "method": "MoCo",
-        "dice": 0.7991,
-        "iou": 0.6713,
-        "precision": 0.858,
-        "recall": 0.7654,
-        "hd95": 4.6132
+        "dice": 0.9281,
+        "iou": 0.8665,
+        "precision": 0.9411,
+        "recall": 0.9234,
+        "hd95": 0.7857
     },
     {
+        "dataset": "OVATUS",
         "method": "BYOL",
-        "dice": 0.7867,
-        "iou": 0.6544,
-        "precision": 0.8141,
-        "recall": 0.7789,
-        "hd95": 4.0268
+        "dice": 0.9265,
+        "iou": 0.864,
+        "precision": 0.9348,
+        "recall": 0.9254,
+        "hd95": 0.7857
     },
     {
-        "method": "BYOL",
-        "dice": 0.7867,
-        "iou": 0.6544,
-        "precision": 0.8141,
-        "recall": 0.7789,
-        "hd95": 4.0268
-    },
-    {
-        "method": "BYOL",
-        "dice": 0.7867,
-        "iou": 0.6544,
-        "precision": 0.8141,
-        "recall": 0.7789,
-        "hd95": 4.0268
+        "dataset": "OTU",
+        "method": "SimSiam",
+        "dice": 0.8262,
+        "iou": 0.7087,
+        "precision": 0.8948,
+        "recall": 0.7825,
+        "hd95": 3.0476
     }
 ]

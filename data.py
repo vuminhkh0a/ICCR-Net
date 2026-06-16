@@ -29,7 +29,6 @@ g = torch.Generator()
 g.manual_seed(seed)
 
 IMAGE_SIZE = 256
-LABELED_RATIO = 1.0
 
 
 geometry_transform = A.Compose([
@@ -74,6 +73,7 @@ class Custom_Dataset(Dataset):
         return len(self.images)
 
     def __getitem__(self, i):
+
         is_labeled = bool(self.labeled_indices[i]) if self.labeled_indices is not None else False
         image_path = self.images[i]
         image = cv2.resize(cv2.cvtColor(cv2.imread(image_path, cv2.IMREAD_COLOR), cv2.COLOR_BGR2RGB), (IMAGE_SIZE, IMAGE_SIZE)) / 255.0
@@ -149,7 +149,7 @@ def grouper(iterable, n):
     args = [iter(iterable)] * n
     return zip(*args)
 
-def get_datasets(name, labeled_indices, with_cls=False):
+def get_datasets(name, labeled_indices, LABELED_RATIO = 0.1, with_cls=False):
     # train_x, train_y, valid_x, valid_y, test_x, test_y = [], [], [], [], [], []
     # if name == 'OTU':
     #     with open('/mnt/nvme0/home/utbt/KhoaVM/OTU-2D-Dataset/OTU_2D_annotation.json', 'r') as f:
@@ -214,6 +214,32 @@ def get_datasets(name, labeled_indices, with_cls=False):
         valid_x, valid_y = get_split("val")
         test_x,  test_y  = get_split("test")
 
+    elif name == 'OVATUS':
+        JSON_PATH = '/mnt/nvme0/home/utbt/KhoaVM/OvaTUS/annotations_split.json'
+        BASE = '/mnt/nvme0/home/utbt/KhoaVM/'
+
+        with open(JSON_PATH, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+
+        for item in data:
+            split = item.get('split', '').lower()
+
+            img = os.path.join(BASE, item.get('file_path_img', ''))
+            ann = os.path.join(BASE, item.get('file_path_ann', ''))
+
+            if split == 'train':
+                train_x.append(img)
+                train_y.append(ann)
+            elif split == 'val':
+                valid_x.append(img)
+                valid_y.append(ann)
+            elif split == 'test':
+                test_x.append(img)
+                test_y.append(ann)
+
+
+
+
 
     print(f"Dataset: {name}")
     print(f"Training data: {len(train_x)}")
@@ -250,13 +276,16 @@ def get_datasets(name, labeled_indices, with_cls=False):
     else:
         return labeled_train_dataset, train_dataset, valid_dataset, test_dataset
 
-def get_dataloaders(name, BATCH_SIZE, NUM_WORKERS, PIN_MEMORY, with_cls=False):
+def get_dataloaders(name, BATCH_SIZE, NUM_WORKERS, PIN_MEMORY, LABELED_RATIO=0.1, with_cls=False):
     
     if name == 'OTU':
         len_train = 850
 
-    else:
+    elif name == 'USOVA':
         len_train = 2593
+
+    elif name == 'OVATUS':
+        len_train = 899
 
     labeled_indices = np.zeros(len_train, dtype=bool)
     labeled_indices[:int(LABELED_RATIO*len_train)] = True
@@ -269,6 +298,7 @@ def get_dataloaders(name, BATCH_SIZE, NUM_WORKERS, PIN_MEMORY, with_cls=False):
     labeled_train_dataset, train_dataset, valid_dataset, test_dataset = get_datasets(
         name=name,
         labeled_indices=labeled_indices,
+        LABELED_RATIO=LABELED_RATIO,
         with_cls=with_cls
     )
 

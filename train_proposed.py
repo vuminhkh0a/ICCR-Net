@@ -155,8 +155,6 @@ def self_train_one_epoch(student, teacher,
         student_images_unlab = student_images[~is_labeled].to(device)
         teacher_images_unlab = teacher_images[~is_labeled].to(device)
 
-        print(student_images_lab.shape, teacher_images_lab.shape, masks.shape, student_images_unlab.shape, teacher_images_unlab.shape)
-
         optimizer.zero_grad()
 
         # Student output

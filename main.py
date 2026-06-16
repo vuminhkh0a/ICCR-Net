@@ -30,18 +30,17 @@ g.manual_seed(seed)
 IMAGE_SIZE = 256
 NUM_WORKERS = 4
 PIN_MEMORY = True
-DATASET = 'USOVA'
-DEVICE = 'cuda:0'
+DEVICE = 'cuda:1'
 
+DATASET = 'OTU'
+LABELED_RATIO = 0.1
+NUM_CLASS = 7
 
-
+IS_TRAIN = True
 PRE_EPOCHS = 10
 EPOCHS = 100
 
-
-IS_TRAIN = True
-
-MODEL = 'MT'
+MODEL = 'ALL'
 WITH_VGG16BN_BACKBONE = True
 
 BATCH_SIZE = 8
@@ -52,7 +51,6 @@ WITH_IMB_LOSS = True
 k = 0.01                
 
 WITH_DIS_HARD_LOSS = False
-NUM_CLASS = 2
 
 
 #====================================================================================================================================
@@ -63,12 +61,12 @@ if __name__ == "__main__":
         from train_proposed import *
         print("Proposed")
         device = torch.device(DEVICE)
-        labeled_train_loader, train_loader, valid_loader, test_loader = get_dataloaders(DATASET, BATCH_SIZE, NUM_WORKERS, PIN_MEMORY)
+        labeled_train_loader, train_loader, valid_loader, test_loader = get_dataloaders(DATASET, BATCH_SIZE, NUM_WORKERS, PIN_MEMORY, LABELED_RATIO)
         rampup_length = PRE_EPOCHS * len(labeled_train_loader) + EPOCHS * len(train_loader)
         global_step = 0
 
 
-        best_model_path = f"weight/usova/proposed-b{BATCH_SIZE}-c{CAPACITY}-k{k}"
+        best_model_path = f"weight/{DATASET}/proposed-b{BATCH_SIZE}-c{CAPACITY}-k{k}"
 
         if WITH_BANK_WEIGHT:
             best_model_path += f"-BankWeight{BANK_WEIGHT_TYPE}"
@@ -106,10 +104,10 @@ if __name__ == "__main__":
     elif MODEL == 'Unet':
         from train_unet import *
         print("Unet")
-        best_model_path = f"weight/usova/unet100.pth"
+        best_model_path = f"weight/{DATASET}/unet{int(LABELED_RATIO*100)}.pth"
         device = torch.device(DEVICE)
         model = VGG16BN_Unet(with_tsne_emb=False, with_vgg16bn=True).to(device)
-        labeled_train_loader, train_loader, valid_loader, test_loader = get_dataloaders(DATASET, BATCH_SIZE, NUM_WORKERS, PIN_MEMORY)
+        labeled_train_loader, train_loader, valid_loader, test_loader = get_dataloaders(DATASET, BATCH_SIZE, NUM_WORKERS, PIN_MEMORY, LABELED_RATIO)
         optimizer = optim.Adam(model.parameters(), lr=0.001, betas=(0.9, 0.999), eps=1e-08, weight_decay=0)
         train_one_dataset(IS_TRAIN, model, labeled_train_loader, valid_loader, test_loader, device, optimizer, best_model_path)
 
@@ -117,12 +115,33 @@ if __name__ == "__main__":
     elif MODEL == 'MT':
         from train_mt import *
         print("MT")
-        best_model_path = f"weight/usova/mt.pth"
+        best_model_path = f"weight/{DATASET}/mt.pth"
         device = torch.device(DEVICE)
         student = VGG16BN_Unet(with_tsne_emb=False, with_vgg16bn=True).to(device)
         teacher = copy.deepcopy(student).to(device)
-        labeled_train_loader, train_loader, valid_loader, test_loader = get_dataloaders(DATASET, BATCH_SIZE, NUM_WORKERS, PIN_MEMORY)
+        labeled_train_loader, train_loader, valid_loader, test_loader = get_dataloaders(DATASET, BATCH_SIZE, NUM_WORKERS, PIN_MEMORY, LABELED_RATIO)
         optimizer = optim.Adam(student.parameters(), lr=0.001, betas=(0.9, 0.999), eps=1e-08, weight_decay=0)
         rampup_length = PRE_EPOCHS * len(labeled_train_loader) + EPOCHS * len(train_loader)
         global_step = 0
         train_one_dataset(IS_TRAIN, student, teacher, global_step, rampup_length, labeled_train_loader, train_loader, valid_loader, test_loader, device, optimizer, best_model_path)
+
+    elif MODEL in ['SimSiam', 'SimCLR', 'MoCo', 'BYOL', 'ALL']:
+        from train_contr import run_contrastive_pipeline
+        device = torch.device(DEVICE)
+
+        PRE_EPOCHS = 20
+        EPOCHS = 200
+        
+        run_contrastive_pipeline(
+            method=MODEL, 
+            dataset_name=DATASET,
+            batch_size=BATCH_SIZE,
+            num_workers=NUM_WORKERS,
+            pin_memory=PIN_MEMORY,
+            device=device,
+            pre_epochs=PRE_EPOCHS,
+            epochs=EPOCHS,
+            is_train=IS_TRAIN,
+            LABELED_RATIO=LABELED_RATIO,
+            run_all=(True if MODEL == 'ALL' else False)
+        )
