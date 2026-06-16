@@ -1,6 +1,14 @@
-# ICCR-Net: Improved Contrastive Learning for Semi-Supervised Semantic Segmentation
+# ICCR-Net: Imbalance-aware Contrastive and Class-Reweighted Network for Ovarian Ultrasound Image Segmentation
 
-ICCR-Net is a semi-supervised semantic segmentation model that leverages contrastive learning with a memory bank to achieve high performance with limited labeled data. The model combines teacher-student frameworks with advanced loss functions and data augmentation strategies.
+## Abstract
+Early diagnosis and risk assessment for ovarian tumors require accurate tumor segmentation. However, segmenting ovarian tumor ultrasound images remains challenging due to boundary ambiguity, speckle noise, and limited annotations. Furthermore, real-world data for ovarian tumors or medical images, in general, consist of various classes, each class has a very different appearance. Furthermore, the class distributions can be unbalanced. In this paper, we introduce the Imbalance-aware Contrastive and Class-Reweighted Network (ICCR-Net), which
+aims to increase the model’s capability to discriminate samples between classes using a classification sampling principle and reduce the influence of early and
+low-quality feature embeddings that remain in a large capacity memory bank by using the proposed Decay-Weighted Multi-Positive InfoNCE Contrastive Loss
+(DWMP-InfoNCE). Additionally, the novel Class-Reweighted Cross-Entropy Loss (CRCE) is introduced to balance the effects between dominant and non-dominant classes in the memory bank. The experiments on the benchmarks OTU 2D and OvaTUS dataset demonstrate that our method outperforms the state-of-the-art semi-supervised methods and proves the effectiveness of our
+framework in low labeled data regimes.
+
+## Keyword
+Ovarian tumor, Segmentation, Semi-supervised learning, Contrastive learning, Class imbalance
 
 ## Features
 
