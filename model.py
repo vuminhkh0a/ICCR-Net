@@ -245,10 +245,10 @@ class VGG16BN_Unet(nn.Module):
         return out
 
 # ==========================================================
-# MT Proposed
+# ICCR-Net
 # ==========================================================
 
-class MT_Proposed(nn.Module):
+class ICCR_NET(nn.Module):
 
     def __init__(self, with_tsne_emb=False, with_vgg16bn=False, num_class=8):
 

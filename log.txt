@@ -526,3 +526,47 @@ Ep 130/200 | Seg train 0.0983 | val loss 0.1867 dice 0.7851 jac 0.6552 | lr 1.00
   ↳ saved best to weight/OTU/SimCLR_Best.pt (val_loss=0.1867)
 Ep 131/200 | Seg train 0.0892 | val loss 0.1928 dice 0.7828 jac 0.6509 | lr 1.00e-04 | 6.4s
 Ep 132/200 | Seg train 0.0927 | val loss 0.1898 dice 0.7868 jac 0.6584 | lr 1.00e-04 | 6.6s
+Ep 133/200 | Seg train 0.0883 | val loss 0.2079 dice 0.7503 jac 0.6119 | lr 1.00e-04 | 6.4s
+Ep 134/200 | Seg train 0.0821 | val loss 0.1828 dice 0.7980 jac 0.6701 | lr 1.00e-04 | 6.3s
+  ↳ saved best to weight/OTU/SimCLR_Best.pt (val_loss=0.1828)
+Ep 135/200 | Seg train 0.0788 | val loss 0.1834 dice 0.7900 jac 0.6606 | lr 1.00e-04 | 6.3s
+Ep 136/200 | Seg train 0.0901 | val loss 0.1878 dice 0.7944 jac 0.6662 | lr 1.00e-04 | 6.2s
+Ep 137/200 | Seg train 0.0906 | val loss 0.2799 dice 0.6118 jac 0.4558 | lr 1.00e-04 | 6.2s
+Ep 138/200 | Seg train 0.1249 | val loss 0.1921 dice 0.7718 jac 0.6359 | lr 1.00e-04 | 6.3s
+Ep 139/200 | Seg train 0.1140 | val loss 0.2040 dice 0.7411 jac 0.5999 | lr 1.00e-04 | 6.2s
+Ep 140/200 | Seg train 0.0953 | val loss 0.1820 dice 0.7890 jac 0.6580 | lr 1.00e-04 | 6.4s
+  ↳ saved best to weight/OTU/SimCLR_Best.pt (val_loss=0.1820)
+Ep 141/200 | Seg train 0.1213 | val loss 0.2136 dice 0.7707 jac 0.6341 | lr 1.00e-04 | 6.2s
+Ep 142/200 | Seg train 0.0877 | val loss 0.1904 dice 0.7825 jac 0.6515 | lr 1.00e-04 | 6.2s
+Ep 143/200 | Seg train 0.1039 | val loss 0.1763 dice 0.7892 jac 0.6618 | lr 1.00e-04 | 6.2s
+  ↳ saved best to weight/OTU/SimCLR_Best.pt (val_loss=0.1763)
+Ep 144/200 | Seg train 0.0783 | val loss 0.3960 dice 0.5707 jac 0.4043 | lr 1.00e-04 | 6.3s
+Ep 145/200 | Seg train 0.0978 | val loss 0.1953 dice 0.7507 jac 0.6113 | lr 1.00e-04 | 6.4s
+Ep 146/200 | Seg train 0.0880 | val loss 0.1898 dice 0.7747 jac 0.6415 | lr 1.00e-04 | 6.3s
+Ep 147/200 | Seg train 0.0910 | val loss 0.2295 dice 0.6805 jac 0.5300 | lr 1.00e-04 | 6.3s
+Ep 148/200 | Seg train 0.0801 | val loss 0.2145 dice 0.7119 jac 0.5656 | lr 1.00e-04 | 6.2s
+Ep 149/200 | Seg train 0.0807 | val loss 0.1743 dice 0.7910 jac 0.6630 | lr 1.00e-04 | 6.4s
+  ↳ saved best to weight/OTU/SimCLR_Best.pt (val_loss=0.1743)
+Ep 150/200 | Seg train 0.0747 | val loss 0.2019 dice 0.7330 jac 0.5926 | lr 1.00e-04 | 6.3s
+Ep 151/200 | Seg train 0.0643 | val loss 0.1847 dice 0.7639 jac 0.6292 | lr 1.00e-04 | 6.2s
+Ep 152/200 | Seg train 0.0694 | val loss 0.1879 dice 0.7584 jac 0.6218 | lr 1.00e-04 | 6.3s
+Ep 153/200 | Seg train 0.0754 | val loss 0.1768 dice 0.7768 jac 0.6442 | lr 1.00e-04 | 6.2s
+Ep 154/200 | Seg train 0.0840 | val loss 0.1853 dice 0.7728 jac 0.6405 | lr 1.00e-04 | 6.2s
+Ep 155/200 | Seg train 0.0651 | val loss 0.1903 dice 0.7589 jac 0.6212 | lr 1.00e-04 | 6.4s
+Ep 156/200 | Seg train 0.0645 | val loss 0.1858 dice 0.7627 jac 0.6298 | lr 1.00e-04 | 6.5s
+Ep 157/200 | Seg train 0.0639 | val loss 0.1829 dice 0.7628 jac 0.6296 | lr 1.00e-04 | 6.2s
+Ep 158/200 | Seg train 0.0677 | val loss 0.1768 dice 0.7720 jac 0.6396 | lr 1.00e-04 | 6.3s
+Ep 159/200 | Seg train 0.0551 | val loss 0.1823 dice 0.7568 jac 0.6220 | lr 1.00e-04 | 6.3s
+Ep 160/200 | Seg train 0.0608 | val loss 0.1824 dice 0.7554 jac 0.6213 | lr 1.00e-05 | 6.3s
+Ep 161/200 | Seg train 0.0582 | val loss 0.1750 dice 0.7709 jac 0.6400 | lr 1.00e-05 | 6.4s
+Ep 162/200 | Seg train 0.0643 | val loss 0.1751 dice 0.7693 jac 0.6381 | lr 1.00e-05 | 6.4s
+Ep 163/200 | Seg train 0.0548 | val loss 0.1732 dice 0.7753 jac 0.6456 | lr 1.00e-05 | 6.2s
+  ↳ saved best to weight/OTU/SimCLR_Best.pt (val_loss=0.1732)
+Ep 164/200 | Seg train 0.0566 | val loss 0.1698 dice 0.7799 jac 0.6515 | lr 1.00e-05 | 6.2s
+  ↳ saved best to weight/OTU/SimCLR_Best.pt (val_loss=0.1698)
+Ep 165/200 | Seg train 0.0651 | val loss 0.1688 dice 0.7820 jac 0.6541 | lr 1.00e-05 | 6.2s
+  ↳ saved best to weight/OTU/SimCLR_Best.pt (val_loss=0.1688)
+Ep 166/200 | Seg train 0.0533 | val loss 0.1671 dice 0.7851 jac 0.6580 | lr 1.00e-05 | 6.3s
+  ↳ saved best to weight/OTU/SimCLR_Best.pt (val_loss=0.1671)
+Ep 167/200 | Seg train 0.0613 | val loss 0.1651 dice 0.7927 jac 0.6675 | lr 1.00e-05 | 6.5s
+  ↳ saved best to weight/OTU/SimCLR_Best.pt (val_loss=0.1651)

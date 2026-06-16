@@ -82,7 +82,7 @@ if __name__ == "__main__":
             best_model_path += f"DisHardLoss2"
 
         
-        student = MT_Proposed(with_tsne_emb=False, with_vgg16bn=WITH_VGG16BN_BACKBONE, num_class=NUM_CLASS).to(device)
+        student = ICCR_NET(with_tsne_emb=False, with_vgg16bn=WITH_VGG16BN_BACKBONE, num_class=NUM_CLASS).to(device)
         teacher = copy.deepcopy(student).to(device)
 
         best_model_path += ".pth"
